@@ -6,24 +6,27 @@ function MyComponent(){
                                     make: "Ford", 
                                     model: "Mustang"});
     
-    function handleYearChange(event) {
+    function handleYearChange(event){
 
+      setCar(c => ({...c, year: event.tarrget.value}));
     } 
     
     function handleMakeChange(event) {
       
+      setCar(c => ({...c, make: event.tarrget.value}));
     }    
 
     function handleModelChange(event) {
       
+      setCar(c => ({...c, model: event.tarrget.value}));
     }    
 
     return( <div>
               <p>Your favourite car is :{car.year} {car.make} {car.model}</p>
 
-              <input type="number" value={car.year}/> <br/>
-              <input type="text" value={car.make}/> <br/>
-              <input type="text" value={car.model}/> <br/>
+              <input type="number" value={car.year} onChange={handleYearChange} /> <br />
+              <input type="text" value={car.make} onChange={handleMakeChange} /> <br />
+              <input type="text" value={car.model} onChange={handleModelChange} /> <br />
       
             </div>)
 }
